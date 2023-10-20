@@ -16,7 +16,7 @@ class UserController extends AbstractController
         ]);
     }
 
-    #[Route('/user/{codigo}', name: 'app_inicio')]
+    #[Route('/user/{codigo}', name: 'app_ficha')]
     public function ficha($codigo): Response{
         $resultado = ($this->usuarios[$codigo] ?? null);
 
@@ -25,6 +25,8 @@ class UserController extends AbstractController
        ]);
         
     }
+    #[Route('/users/usuarios', name: 'app_inicio')]
+    public function buscar($texto)
 
 
     protected $usuarios = [

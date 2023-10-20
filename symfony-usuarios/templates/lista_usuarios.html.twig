@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<body>
+    <h1>Listado de contactos</h1>
+{% if ususarios %}
+{% for usuario in usuarios%}
+<ul>
+<li><strong>{{ usuario.nombre}}</strong></li>
+<li><strong>Correo: {{ usuario.email}}</strong></li>
+<li><strong>Passwd: {{ usuario.passwd}}</strong></li>
+</ul>
+{% endfor %}
+{% else %}
+    <p>No se han encontrado usuarios</p>
+{% endif %}
+</body>
+</html>
