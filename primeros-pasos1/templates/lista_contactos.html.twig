@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contactos{% endblock %}
+{% block body %}
+    <h1>Ficha del contacto</h1>
+    {% if contactos %}
+        {% for contacto in contactos %}
+            {{ include ('datos_contacto.html.twig',{'contacto':contacto}) }}
+            
+        {% endfor %}
+        <a href="{{ path('app_logout') }}" class="btn btn-lg btn-primary">Logout</a>
+    {% else %}
+        <p>Contacto no encontrado</p>
+    {% endif %}
+{% endblock %}
