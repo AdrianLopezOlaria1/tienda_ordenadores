@@ -11,6 +11,7 @@ class TabsController extends AbstractController
     #[Route('/tabs', name: 'tabs')]
     public function index(): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render('tabs/index.html.twig', []);
     }
 }

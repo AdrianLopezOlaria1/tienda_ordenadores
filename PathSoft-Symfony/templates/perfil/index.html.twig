@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Perfil{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('path/a/tu/style.css') }}">
+{% endblock %}
+
+{% block body %}
+   <style>
+   #pagina{
+		margin-left:42%;
+	}
+	#texto{
+		text-align:center;
+		margin-left:-90%;
+	}
+    .curso-javascript {
+        list-style-image: url('{{ asset('logos/JavaScript.png') }}');
+        color: darkgoldenrod;
+    }
+
+    .curso-php {
+        list-style-image: url('{{ asset('logos/PHP.png') }}');
+        color: darkorchid;
+    }
+
+    .curso-java {
+        list-style-image: url('{{ asset('logos/Java.png') }}');
+        color: black;
+    }
+
+    .curso-python {
+        list-style-image: url('{{ asset('logos/python.png') }}');
+        color: darkblue;
+    }
+
+    .curso-angular {
+        list-style-image: url('{{ asset('logos/Angular.png') }}');
+        color: darkred;
+    }
+
+    .curso-node {
+        list-style-image: url('{{ asset('logos/Node.png') }}');
+        color: darkgreen;
+    }
+
+   
+</style>
+
+		
+        <br>
+        <br>
+		<div id="pagina">
+		<div id="texto">
+        <h1>Perfil de {{ usuario.email }}</h1>
+
+        <h2>Mis cursos:</h2>
+		</div>
+        {% if cursos is empty %}
+            <p>No tienes cursos. <a href="{{ path('service') }}">Explora nuestros cursos</a></p>
+		
+
+        {% else %}
+            <ul class="curso-list">
+                {% for curso in cursos %}
+                    <li class="curso-item curso-{{ curso.nombre|lower|replace({' ': '-'}) }}">{{ curso.nombre }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+		</div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    
+{% endblock %}

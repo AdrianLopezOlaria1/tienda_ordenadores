@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <style>
+        .register-container {
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .register-title {
+            text-align: center;
+        }
+
+        .form-group {
+            width: 50%;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-input {
+            width: 100%;
+            margin-bottom: 10px;
+            color:black;
+        }
+
+        .checkbox-label {
+            /* Estilos para la etiqueta del checkbox */
+            font-weight: bold;
+        }
+
+     
+    </style>
+
+    <div class="register-container">
+        <h1 class="register-title">Registrate</h1>
+
+        {{ form_errors(registrationForm) }}
+
+        {{ form_start(registrationForm) }}
+            <div class="form-group">
+                {{ form_row(registrationForm.email, {'attr': {'class': 'form-input'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(registrationForm.plainPassword, {
+                    label: 'Password',
+                    'attr': {'class': 'form-input'}
+                }) }}
+            </div>
+            <div class="form-group">
+                {{ form_row(registrationForm.agreeTerms, {'label_attr': {'class': 'checkbox-label'}}) }}
+            </div>
+
+            <button type="submit" class="btn btn-w240 ripple" >Register</button>
+        {{ form_end(registrationForm) }}
+    </div>
+    <br>
+    <br>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+{% endblock %}

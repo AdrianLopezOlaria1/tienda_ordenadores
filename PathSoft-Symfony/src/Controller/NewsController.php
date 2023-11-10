@@ -8,9 +8,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class NewsController extends AbstractController
 {
-    #[Route('/news', name: 'app_news')]
+    #[Route('/news', name: 'news')]
     public function index(): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render('news/index.html.twig', []);
     }
 }

@@ -11,17 +11,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
         
-    <link rel="icon" href="assets/img/favicon/favicon.ico" type="image/x-icon"> 
+    <link rel="icon" href="{{asset('assets/img/favicon/favicon.ico')}}" type="image/x-icon"> 
 
-    <link rel="stylesheet" href="assets/css/bootstrap-grid.css">
-<link rel="stylesheet" href="assets/css/style.css">
-    <link rel="preload" href="assets/fonts/source-sans-pro-v21-latin/source-sans-pro-v21-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/source-sans-pro-v21-latin/source-sans-pro-v21-latin-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/montserrat-v25-latin/montserrat-v25-latin-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/montserrat-v25-latin/montserrat-v25-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ asset('assets/css/bootstrap-grid.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="preload" href="{{ asset('assets/fonts/source-sans-pro-v21-latin/source-sans-pro-v21-latin-regular.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ asset('assets/fonts/source-sans-pro-v21-latin/source-sans-pro-v21-latin-700.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ asset('assets/fonts/montserrat-v25-latin/montserrat-v25-latin-700.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ asset('assets/fonts/montserrat-v25-latin/montserrat-v25-latin-600.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ asset('assets/fonts/material-icons/material-icons.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ asset('assets/fonts/material-icons/material-icons-outlined.woff2') }}" as="font" type="font/woff2" crossorigin>
 
-<link rel="preload" href="assets/fonts/material-icons/material-icons.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/material-icons/material-icons-outlined.woff2" as="font" type="font/woff2" crossorigin>
+</head>
 
 </head>
 
@@ -45,7 +46,7 @@
                 <a href="{{ path('service') }}">Services</a>
             </li>
             <li>
-                <a href="{{ path('typography') }}">Typography</a>
+                <a href="{{ path('perfil') }}">Mi perfil</a>
             </li>
             <li>
                 <a href="{{ path('tabs') }}">Tabs & Accordions</a>
@@ -66,14 +67,25 @@
                 <div class="bff-container">
                     <p>Get Full-Featured <br class="d-sm-none"> PathSoft Template</p>
                     <div class="btn-group justify-content-center justify-content-md-start">
-                        <a href="https://www.templatemonster.com/website-templates/pathsoft-it-solutions-for-your-business-services-website-template-83414.html?utm_campaign=blog_site_KovalWeb&utm_source=KovalWeb&utm_medium=referral&aff=KovalWeb" class="btn btn-border btn-with-icon btn-small ripple">
-                            <span>HTML5</span>
+                        
+                        
+                        {% if app.user %}
+                        <a href="{{path('app_logout')}}" class="btn btn-border btn-with-icon btn-small ripple">
+                            <span>Cerrar Sesion</span>
                             <svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
                         </a>
-                        <a href="https://www.templatemonster.com/wordpress-themes/pathsoft-it-solutions-for-your-business-services-wordpress-theme-99496.html?utm_campaign=blog_site_KovalWeb&utm_source=KovalWeb&utm_medium=referral&aff=KovalWeb" class="btn btn-border btn-with-icon btn-small ripple">
-                            <span>WordPress</span>
+                        {% else %}
+                            <a href="{{path('app_login')}}" class="btn btn-border btn-with-icon btn-small ripple">
+                            <span>Login</span>
                             <svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
                         </a>
+                        
+                        <a href="{{path('app_register')}}" class="btn btn-border btn-with-icon btn-small ripple">
+                            <span>Register</span>
+                            <svg class="btn-icon-right" viewBox="0 0 13 9" width="13" height="9"><use xlink:href="assets/img/sprite.svg#arrow-right"></use></svg>
+                        </a>
+                        {% endif %}
+                        
                     </div>
                 </div>
             </div>
@@ -96,37 +108,37 @@
 <nav class="main-mnu">
     <ul class="main-mnu-list">
         <li>
-            <a href="index.html" data-title="Home">
+            <a href="{{ path('index') }}" data-title="Home">
                 <span>Home</span>
             </a>
         </li>
         <li>
-            <a href="about-us.html" data-title="About us">
+            <a href="{{ path('about') }}" data-title="About us">
                 <span>About us</span>
             </a>
         </li>
         <li>
-            <a href="services.html" data-title="Services">
+            <a href="{{ path('service') }}" data-title="Cursos">
                 <span>Services</span>
             </a>
         </li>
         <li>
-            <a href="typography.html" data-title="Typography">
-                <span>Typography</span>
+            <a href="{{ path('perfil') }}" data-title="Perfil">
+                <span>Perfil</span>
             </a>
         </li>
         <li>
-            <a href="tabs-and-accordions.html" data-title="Tabs & Accordions">
+            <a href="{{ path('tabs') }}" data-title="Tabs & Accordions">
                 <span>Tabs & Accordions</span>
             </a>
         </li>
         <li>
-            <a href="news.html" data-title="News">
+            <a href="{{ path('news') }}" data-title="News">
                 <span>News</span>
             </a>
         </li>
         <li>
-            <a href="contacts.html" data-title="Contacts">
+            <a href="{{ path('contacts') }}" data-title="Contacts">
                 <span>Contacts</span>
             </a>
         </li>
@@ -147,7 +159,7 @@
         </div>
     </nav>
 </header>
-            {% include "partials/_navigation.html.twig" %}
+            {# {% include partials/_navigation.html.twig %}  #}
 			{% block body %}{% endblock %}  
 
 <!-- Begin footer -->
@@ -201,12 +213,12 @@
 
 	</main><!-- End main -->
 
-	<script src="assets/libs/jquery/jquery.min.js"></script>
-<script src="assets/libs/lozad/lozad.min.js"></script>
-<script src="assets/libs/device/device.js"></script>
-<script src="assets/libs/spincrement/jquery.spincrement.min.js"></script>
-<script src="assets/libs/pristine/pristine.min.js"></script>
-<script src="assets/js/custom.js"></script>
-<script src="assets/js/forms.js"></script>
+    <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/lozad/lozad.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/device/device.js') }}"></script>
+    <script src="{{ asset('assets/libs/spincrement/jquery.spincrement.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/pristine/pristine.min.js') }}"></script>
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="{{ asset('assets/js/forms.js') }}"></script>
 	
 </body></html>

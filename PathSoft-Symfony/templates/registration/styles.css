@@ -1,0 +1,32 @@
+/* style.css */
+
+.register-container {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.register-title {
+    text-align: center;
+}
+
+.form-group {
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.checkbox-label {
+    /* Estilos para la etiqueta del checkbox */
+    font-weight: bold;
+}
+
+.btn {
+    display: block;
+    margin: 0 auto;
+}
