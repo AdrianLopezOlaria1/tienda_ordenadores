@@ -23,8 +23,10 @@
                                 <div class="post-footer">
                                     <a class="btn" href="{{ path('single_post', {'slug': post.slug}) }}">READ MORE...</a>
                                     <span>
-                                        <i class="fa fa-heart sr-icons"></i> {{ post.numLikes }}
-                                        <i class="fa fa-comments sr-icons"></i> {{ post.numComments }}
+                                    <i class="fa fa-heart sr-icons"></i>
+                        <a href="{{ path('post_like', {'slug': post.slug}) }}">LIKE</a> 
+                        {{ post.numLikes }}
+                        <i class="fa fa-comments sr-icons"></i> {{ post.numComments }}
                                     </span>
                                 </div>
                             </div>
@@ -71,30 +73,11 @@
             <h3>Recent Posts</h3>
             <hr>
              <div class="post">
-               <div class="post-heading">
-                 <span>10 APRIL</span>
-                 <img class="img-responsive" src="images/blog/wedding.jpg" alt="post's picture">
-               </div>
-               <div class="post-body">
-                 <span>
-                 <i class="fa fa-heart sr-icons"></i> 10
-                 <i class="fa fa-comments sr-icons"></i> 10
-                 </span>
-                 <h4 class="text-left"><a href="single_post.html"><strong>Aliquam soluta</strong></a></h4>
-               </div>
+              {{ include('partials/recent_post.html.twig', {'recents': recentPosts}) }}
              </div>
              <div class="post">
-               <div class="post-heading">
-                 <span>12 MAY</span>
-                 <img class="img-responsive" src="images/blog/woman.jpg" alt="post's picture">
-               </div>
-               <div class="post-body">
-                 <span>
-                 <i class="fa fa-heart sr-icons"></i> 10
-                 <i class="fa fa-comments sr-icons"></i> 10
-                 </span>
-                 <h4 class="text-left"><a href="single_post.html"><strong>Consequuntur</strong></a></h4>
-               </div>
+               
+
              </div>
         </div>
       <!-- End of Side bar --> 

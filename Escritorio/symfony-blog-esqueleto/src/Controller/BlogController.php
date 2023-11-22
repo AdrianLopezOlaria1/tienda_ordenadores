@@ -135,9 +135,12 @@ class BlogController extends AbstractController
         $repository = $doctrine->getRepository(Post::class);
         $posts = $repository->findAll();
         
-        return $this->render('blog/blog.html.twig', [
-            'posts' => $posts,
-        ]);
+        $recentPosts = array_slice($posts, 0, 2);
+
+    return $this->render('blog/blog.html.twig', [
+        'posts' => $posts,  // Todos los posts para la sección principal
+        'recentPosts' => $recentPosts,  // Solo los 2 posts más recientes para la sección de posts recientes
+    ]);
     }
 
     #[Route("/single_post/{slug}", name: 'single_post')]
